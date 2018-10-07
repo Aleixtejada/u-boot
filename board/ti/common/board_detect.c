@@ -205,10 +205,12 @@ int __maybe_unused ti_i2c_eeprom_am_get(int bus_addr, int dev_addr)
 	ep = TI_EEPROM_DATA;
 #ifndef CONFIG_SPL_BUILD
 	if (ep->header == TI_EEPROM_HEADER_MAGIC)
+
 		return 0; /* EEPROM has already been read */
 #endif
 
 	/* Initialize with a known bad marker for i2c fails.. */
+
 	ep->header = TI_DEAD_EEPROM_MAGIC;
 	ep->name[0] = 0x0;
 	ep->version[0] = 0x0;
@@ -225,6 +227,7 @@ int __maybe_unused ti_i2c_eeprom_am_get(int bus_addr, int dev_addr)
 	ti_eeprom_string_cleanup(ep->name);
 
 	/* BeagleBone Green '1' eeprom, board_rev: 0x1a 0x00 0x00 0x00 */
+
 	if (am_ep.version[0] == 0x1a && am_ep.version[1] == 0x00 &&
 	    am_ep.version[2] == 0x00 && am_ep.version[3] == 0x00)
 		strlcpy(ep->version, "BBG1", TI_EEPROM_HDR_REV_LEN + 1);
@@ -240,6 +243,7 @@ int __maybe_unused ti_i2c_eeprom_am_get(int bus_addr, int dev_addr)
 	       TI_EEPROM_HDR_NO_OF_MAC_ADDR * TI_EEPROM_HDR_ETH_ALEN);
 
 	return 0;
+
 }
 
 int __maybe_unused ti_i2c_eeprom_dra7_get(int bus_addr, int dev_addr)

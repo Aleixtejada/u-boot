@@ -23,6 +23,11 @@
 #define EMIF_OCP_CONFIG_BEAGLEBONE_BLACK       0x00141414
 #define EMIF_OCP_CONFIG_AM335X_EVM             0x003d3d3d
 
+static inline int board_is_DAE(void)
+{
+	return board_ti_is("DAE");
+}
+
 static inline int board_is_bone(void)
 {
 	return board_ti_is("A335BONE");
