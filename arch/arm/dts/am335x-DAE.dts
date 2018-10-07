@@ -11,7 +11,7 @@
 #include "am335x-bone-common.dtsi"
 
 / {
-	model = "DAE COMPUTE MODULE";
+	model = "DAE_TEST_BOARD";
 	compatible = "ti,am335x-bone-black", "ti,am335x-bone", "ti,am33xx";
 	chosen {
 		stdout-path = &uart0;
